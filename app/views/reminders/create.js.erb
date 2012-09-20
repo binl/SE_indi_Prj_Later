@@ -1,0 +1,7 @@
+$("#reminderList").html("<%= escape_javascript(render(:partial => 'reminders/reminder_list',
+                                                        :locals => {:reminders_array => @all_reminders})) %>")
+$("#reminder_content").val('');
+
+
+
+

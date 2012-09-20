@@ -1,0 +1,22 @@
+<div id="reminderList">
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Priority</th>
+    <th style="width: 200px;">Content</th>
+    <th>Assignee</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% reminders_array.each do |reminder| %>
+      <tr>
+        <td><%= reminder.priority %></td>
+        <td><%= link_to(reminder.content, reminder) %></td>
+        <td><%= link_to(reminder.user.name, reminder.user) %></td>
+        <td><%= link_to 'Done', reminder, method: :delete, :remote => true %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>

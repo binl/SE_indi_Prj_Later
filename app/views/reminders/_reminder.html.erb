@@ -1,0 +1,15 @@
+<li>
+  <span class="timestamp">
+    <% if reminder.priority == 3  %>
+                    <div style="color: #FF0000; FONT-WEIGHT: bold;"> High Priority </div>
+                    <% elsif reminder.priority == 2  %>
+                    <div style="color: #0000FF; FONT-WEIGHT: bold;"> Medium Priority </div>
+                    <% else%>
+                    <div style="color: #00FF00; FONT-WEIGHT: bold;"> Low Priority </div>
+                    <% end %>
+  </span>
+  <span class="content"><%= reminder.content %></span>
+  <span class="timestamp pull-right">
+    Assigned <%= time_ago_in_words(reminder.created_at) %> ago.
+  </span>
+</li>

@@ -1,0 +1,64 @@
+<div id="newReminderForm">
+  <%= form_for(@reminder, remote: true) do |f| %>
+      <% if @reminder.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@reminder.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+            <ul>
+              <% @reminder.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label 'Task Description', class: "contentLabel" %>
+        <%= f.text_field :content %>
+      </div>
+      <div>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Priority Level</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><label class="radio">
+              <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" checked>
+              Low Priority
+            </label></td>
+          </tr>
+          <tr>
+            <td>
+              <label class="radio">
+                <input type="radio" name="optionsRadios" id="optionsRadios2" value="2" checked>
+                Medium Priority
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class="radio">
+                <input type="radio" name="optionsRadios" id="optionsRadios3" value="3" checked>
+                High Priority
+              </label>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <h4 class="contentLabel">Assigned to</h4>
+        <br/>
+        <select name="selectedUser">
+          <% users_array.each do |user| %>
+              <option value=<%= user.id %>><%= user.name %></option>
+          <% end %>
+        </select>
+
+        <div class="actions">
+          <%= f.submit "Create" %>
+        </div>
+  <% end %>
+</div>

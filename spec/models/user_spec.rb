@@ -27,6 +27,8 @@ describe User do
 
   it { should be_valid }
 
+  it { should respond_to(:reminders) }
+
   describe "when password is not present" do
     before { @user.password = @user.password_confirmation = " " }
     it { should_not be_valid }
@@ -106,5 +108,28 @@ describe User do
   describe "with a password that's too short" do
     before { @user.password = @user.password_confirmation = "a" * 5 }
     it { should be_invalid }
+  end
+
+  describe "reminder associations" do
+
+    before { @user.save }
+    let!(:hp_reminder) do
+      FactoryGirl.create(:reminder, user: @user, priority: 3)
+    end
+    let!(:lp_reminder) do
+      FactoryGirl.create(:reminder, user: @user, priority: 1)
+    end
+
+    it "should have the reminders in the right order" do
+      @user.reminders.should == [hp_reminder, lp_reminder]
+    end
+
+    it "should destroy all tasks of a deleted user" do
+      reminders = @user.reminders
+      @user.destroy
+      reminders.each do |reminder|
+        Reminder.find(reminder.id).should be_nil
+      end
+    end
   end
 end

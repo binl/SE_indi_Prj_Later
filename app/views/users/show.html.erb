@@ -1,0 +1,20 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="span8">
+    <% if @user.reminders.any? %>
+        <h3><%= @user.reminders.count %> Tasks were assigned to you</h3>
+        <ol class="reminders">
+          <%= render @reminders %>
+        </ol>
+        <%= will_paginate @reminders %>
+    <% end %>
+  </div>
+</div>

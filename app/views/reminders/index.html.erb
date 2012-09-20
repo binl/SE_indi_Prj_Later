@@ -1,0 +1,11 @@
+<h1>Later Note</h1>
+
+<div class="row">
+  <div class="span8">
+    <%= render :partial => "reminder_list", :locals => { :reminders_array => @all_reminders} %>
+  </div>
+  <div class="span4">
+    <% puts @all_users %>
+    <%= render :partial => "new_reminder_form", :locals => { :users_array => @all_users} %>
+  </div>
+</div>
