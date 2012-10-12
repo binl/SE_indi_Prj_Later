@@ -1,5 +1,7 @@
 SampleApp::Application.routes.draw do
 
+  devise_for :admins
+
   resources :users
   resources :reminders
 
