@@ -1,6 +1,12 @@
+<% if not @reminder.valid? %>
+$("#errorMessage").show();
+
+<% else %>
+$("#errorMessage").hide();
+$("#reminder_content").val('');
 $("#reminderList").html("<%= escape_javascript(render(:partial => 'reminders/reminder_list',
                                                         :locals => {:reminders_array => @all_reminders})) %>")
-$("#reminder_content").val('');
+<% end %>
 
 
 

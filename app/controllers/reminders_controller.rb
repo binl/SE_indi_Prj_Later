@@ -8,7 +8,7 @@ class RemindersController < ApplicationController
   end
 
   def create
-    puts params
+    #puts params
     @reminder = Reminder.new(params[:reminder])
     @reminder.priority = params[:optionsRadios]
     @reminder.user = User.find(params[:selectedUser])

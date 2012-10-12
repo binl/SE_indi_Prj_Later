@@ -11,11 +11,7 @@ describe "Reminder pages" do
 
     before { visit reminder_path(task1) }
 
-    it { should have_selector('h3', text: user.name) }
-    it { should have_selector('h3', "Priority Level") }
-
     it { should have_content(task1.content) }
-    it { should have_content(user.name) }
-    it { should have_content(user.reminders.count) }
   end
+
 end
