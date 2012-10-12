@@ -31,6 +31,10 @@ class RemindersController < ApplicationController
     @all_reminders = Reminder.all
     @all_users = User.all
     @reminder = Reminder.new
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @all_reminders}
+    end
   end
 
   def edit

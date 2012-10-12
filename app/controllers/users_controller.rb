@@ -8,6 +8,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @all_users = User.all
+
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @all_users}
+    end
+  end
+
   def edit
     @user = User.find(params[:id])
   end
