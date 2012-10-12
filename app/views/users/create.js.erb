@@ -1,0 +1,10 @@
+<% if not @user.valid? %>
+$("#userErrorMessage").show();
+
+<% else %>
+$("#userErrorMessage").hide();
+$("#user_name").val('');
+$("#user_email").val('');
+$("#managed_users_list").html("<%= escape_javascript(render(:partial => 'users/managed_list',
+                                                        :locals => {:all_users => @all_users})) %>")
+<% end %>

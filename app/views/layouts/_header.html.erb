@@ -5,12 +5,12 @@
       <nav>
         <ul class="nav pull-right">
           <% if admin_signed_in? %>
-              <li><%= link_to current_admin.email, '/users/profile' %> </li>
+              <li><%= link_to current_admin.email, '#' %> </li>
+              <li><%= link_to "Management", '/admins/management' %></li>
               <li><%= link_to "Sign out", destroy_admin_session_path, :method => :delete %></li>
           <% else %>
               <li><%= link_to "Sign in",   new_admin_session_path %></li>
           <% end %>
-          <li><%= link_to "Home",    root_path %></li>
           <li><%= link_to "Help",    help_path %></li>
         </ul>
       </nav>

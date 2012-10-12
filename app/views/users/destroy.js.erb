@@ -1,0 +1,2 @@
+$("#managed_users_list").html("<%= escape_javascript(render(:partial => 'users/managed_list',
+                                                        :locals => {:all_users => @all_users})) %>")

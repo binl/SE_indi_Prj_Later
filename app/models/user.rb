@@ -10,8 +10,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation
-  has_secure_password
+  attr_accessible :email, :name
 
   has_many :reminders, dependent: :destroy
   before_save { |user| user.email = email.downcase }
@@ -22,7 +21,7 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
 
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
+  #validates :password, presence: true, length: { minimum: 6 }
+  #validates :password_confirmation, presence: true
 
 end

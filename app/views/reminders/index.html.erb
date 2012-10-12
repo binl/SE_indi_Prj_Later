@@ -6,7 +6,7 @@
     <% if admin_signed_in? %>
     <%= render :partial => "new_reminder_form", :locals => { :users_array => @all_users} %>
     <% else %>
-    <%= link_to "Sign in as Admin to create Task", new_admin_session_path %>
+    <h2><%= link_to "Sign in as Admin to create Task", new_admin_session_path %> </h2>
     <% end %>
   </div>
 </div>

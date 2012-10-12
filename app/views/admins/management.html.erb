@@ -1,0 +1,15 @@
+<h1>Manage all Users</h1>
+<% if admin_signed_in? %>
+    <div class="row">
+      <div class="span8">
+        <%= render :partial => "users/managed_list", :locals => { :all_users => @all_users} %>
+      </div>
+      <div class="span4">
+        <%= render :partial => "users/user_info_form" %>
+      </div>
+    </div>
+<% else %>
+    <h2><%= link_to "Only administrators can manage users, please sign in.", new_admin_session_path %></h2>
+<% end %>
+
+

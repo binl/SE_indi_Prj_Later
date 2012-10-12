@@ -1,5 +1,8 @@
 SampleApp::Application.routes.draw do
 
+  get "admins/management"
+
+  match '/admins/management', to: 'admins#management'
   devise_for :admins
 
   resources :users
