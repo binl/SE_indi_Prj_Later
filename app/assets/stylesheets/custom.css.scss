@@ -11,7 +11,10 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 90px;
+  background-image: url("/assets/backgroundImage.jpeg");
+  background-repeat: repeat-x;
+  background-color: none;
 }
 
 section {
@@ -62,8 +65,9 @@ p {
 .logo {
   float: left;
   margin-right: 10px;
+  margin-top: 8px;
   font-size: 1.7em;
-  color: #ddd;
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -73,10 +77,25 @@ p {
 }
 
 .logo:hover {
-  color: #fff;
+  color: #ddd;
   text-decoration: none;
 }
 
+#navigation_panel{
+  a {
+    color: #ffffff;
+    text-shadow: none;
+    font-family: "chalkduster";
+    &:hover {
+      color: #dddddd;
+    }
+  }
+
+  .nav.pull-right{
+    margin-top: 8px;
+  }
+
+}
 
 /* footer */
 
